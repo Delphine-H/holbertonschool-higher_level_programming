@@ -25,7 +25,8 @@ def uppercase(str):
         str (str): The input string.
 
     Returns:
-        str: The input string with all lowercase letters converted to uppercase.
+        str: The input string with all lowercase
+        letters converted to uppercase.
     """
     string = ""
     for char in str:
