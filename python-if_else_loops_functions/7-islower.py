@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-
 def islower(c):
     """
     Check if a character is a lowercase letter.
