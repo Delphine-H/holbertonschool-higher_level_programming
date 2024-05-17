@@ -9,10 +9,9 @@ class Square:
         """instance attribute"""
         self.size = size
 
-
     @property
     def size(self):
-        """Get the size of the square"""        
+        """Get the size of the square"""
         return self.__size
 
     @size.setter
