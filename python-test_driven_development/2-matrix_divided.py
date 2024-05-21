@@ -31,19 +31,19 @@ def matrix_divided(matrix, div):
                         " of integers/floats")
     if len(matrix) == 0 or any(len(row) != len(matrix[0]) for row in matrix):
         raise TypeError("Each row of the matrix must have the same size")
-    if not isinstance(div, int) or not isinstance(div, float):
+    if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
     result = []
     for row in matrix:
         new_row = []
-        for elements in row:
-            if not isinstance(elements, (int, float)):
+        for element in row:
+            if not isinstance(element, (int, float)):
                 raise TypeError(
                     "matrix must be a matrix (list of lists) "
                     "of integers/floats"
                 )
-        new_row.append(round(elements / div, 2))
-    result.append(new_row)
+            new_row.append(round(element / div, 2))
+        result.append(new_row)
     return result
