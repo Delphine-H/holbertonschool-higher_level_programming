@@ -5,6 +5,7 @@ This function takes two arguments and returns their sum
 after converting them to integers.
 """
 
+
 def add_integer(a, b=98):
     """
     Adds two integers or floats after converting them to integers.
