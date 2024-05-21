@@ -84,3 +84,9 @@ Printing a name with both first and last names as integers:
     Traceback (most recent call last):
         ...
     TypeError: first_name must be a string
+
+Passing more than two arguments:
+    >>> say_my_name("Jean", "François", "Gray") #doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but ...
