@@ -14,10 +14,10 @@ class Rectangle:
     def __str__(self):
         my_rectangle = ""
         if self.__height != 0 or self.__width != 0:
-            for _ in range(self.__height):
-                for _ in range(self.__width):
-                    my_rectangle += "#"
-                my_rectangle += "\n"
+            for row in range(self.__height):
+                my_rectangle += '#' * self.width
+                if row < self.__height - 1: 
+                    my_rectangle += "\n"
         return my_rectangle
 
     @property
