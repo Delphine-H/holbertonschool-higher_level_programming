@@ -16,7 +16,7 @@ class Rectangle:
         if self.__height != 0 and self.__width != 0:
             for row in range(self.__height):
                 my_rectangle += '#' * self.width
-                if row < self.__height - 1: 
+                if row < self.__height - 1:
                     my_rectangle += "\n"
         return my_rectangle
 
