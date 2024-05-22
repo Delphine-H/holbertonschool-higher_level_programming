@@ -20,9 +20,6 @@ class Rectangle:
                 my_rectangle += "\n"
         return my_rectangle
 
-    def __repr__(self):
-        return f"<3-rectangle.Rectangle object at {hex(id(self))}>"
-
     @property
     def width(self):
         return self.__width
