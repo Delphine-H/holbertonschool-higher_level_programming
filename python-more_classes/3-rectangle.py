@@ -13,7 +13,7 @@ class Rectangle:
 
     def __str__(self):
         my_rectangle = ""
-        if self.__height != 0 or self.__width != 0:
+        if self.__height != 0 and self.__width != 0:
             for row in range(self.__height):
                 my_rectangle += '#' * self.width
                 if row < self.__height - 1: 
