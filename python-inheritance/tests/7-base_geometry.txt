@@ -60,3 +60,9 @@ Traceback (most recent call last):
   ...
     raise TypeError("{} must be an integer".format(name))
 TypeError: ... must be an integer
+
+>>> bg.integer_validator("name", {"value": 1}) # doctest: +ELLIPSIS
+Traceback (most recent call last):
+  ...
+    raise TypeError("{} must be an integer".format(name))
+TypeError: ... must be an integer
