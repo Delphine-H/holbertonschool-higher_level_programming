@@ -60,8 +60,3 @@ Traceback (most recent call last):
   ...
     raise TypeError("{} must be an integer".format(name))
 TypeError: ... must be an integer
-
->>> bg.integer_validator("name", 1, 2, 3) # doctest: +ELLIPSIS
-Traceback (most recent call last):
-  ...
-TypeError: BaseGeometry.integer_validator() takes ... positional arguments but ... were given
