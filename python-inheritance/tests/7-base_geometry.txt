@@ -67,12 +67,12 @@ Traceback (most recent call last):
     raise TypeError("{} must be an integer".format(name))
 TypeError: ... must be an integer
 
->>> bg.integer_validator(None, 10) # doctest: +ELLIPSIS
+>>> bg.integer_validator("Thing", object)
 Traceback (most recent call last):
     ...
-TypeError: name must be a string
+TypeError: Thing must be an integer
 
->>> bg.integer_validator("", 10)
+>>> bg.integer_validator("flag", True)
 Traceback (most recent call last):
     ...
-TypeError: name must be a string
+TypeError: flag must be an integer
