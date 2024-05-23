@@ -3,6 +3,7 @@ This is the test file for the MyList class.
 
 >>> MyList = __import__('1-my_list').MyList
 
+>>> my_list = MyList()
 >>> my_list = MyList([3, 1, 2])
 >>> my_list.print_sorted()
 [1, 2, 3]
@@ -29,4 +30,5 @@ This is the test file for the MyList class.
 >>> single_element_list = MyList([1])
 >>> single_element_list.print_sorted()
 [1]
+
 """
