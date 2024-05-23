@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module that contain a function who return 
+Module that contain a function who return
 a list of available attributes and methods of an object
 """
 
