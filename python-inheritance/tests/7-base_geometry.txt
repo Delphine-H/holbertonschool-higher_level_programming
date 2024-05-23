@@ -43,3 +43,14 @@ TypeError: volume must be an integer
 Traceback (most recent call last):
     ...
 Exception: area() is not implemented
+
+>>> bg.integer_validator("height", {4, 3})
+Traceback (most recent call last):
+    ...
+TypeError: height must be an integer
+
+>>> bg.integer_validator("test", float('inf')) # doctest: +ELLIPSIS
+Traceback (most recent call last):
+  ...
+    raise TypeError("{} must be an integer".format(name))
+TypeError: ... must be an integer
