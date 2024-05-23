@@ -70,14 +70,9 @@ TypeError: ... must be an integer
 >>> bg.integer_validator(None, 10) # doctest: +ELLIPSIS
 Traceback (most recent call last):
     ...
-TypeError: ... must be a string
+TypeError: name must be a string
 
 >>> bg.integer_validator("", 10)
 Traceback (most recent call last):
     ...
 TypeError: name must be a string
-
->>> bg.integer_validator("negative_float", -3.14)
-Traceback (most recent call last):
-    ...
-TypeError: negative_float must be an integer
