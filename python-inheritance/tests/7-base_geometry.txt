@@ -65,3 +65,9 @@ TypeError: ... must be an integer
 Traceback (most recent call last):
     ...
 TypeError: Thing must be an integer
+
+>>> try:
+...     bg.integer_validator("flag", True)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] flag must be an integer
