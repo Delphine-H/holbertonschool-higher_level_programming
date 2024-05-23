@@ -82,7 +82,7 @@ TypeError: Thing must be an integer
 ...    bg.integer_validator("num", 0)
 ... except Exception as e:
 ...    print("[{}] {}".format(e.__class__.__name__, e))
-[ValueError] age must be greater than 0
+[ValueError] num must be greater than 0
 
 >>> try:
 ...    bg.integer_validator("name", "Delphine")
