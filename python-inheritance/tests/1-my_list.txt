@@ -20,8 +20,9 @@ This is the test file for the MyList class.
 >>> my_list
 [0, 1, 2, 3, 4, 5]
 
+>>> my_list.append(-1)
 >>> my_list.print_sorted()
-[0, 1, 2, 3, 4, 5]
+[-1, 0, 1, 2, 3, 4, 5]
 
 >>> empty_list = MyList()
 >>> empty_list.print_sorted()
