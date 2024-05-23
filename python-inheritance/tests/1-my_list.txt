@@ -24,6 +24,12 @@ This is the test file for the MyList class.
 >>> my_list.print_sorted()
 [-1, 0, 1, 2, 3, 4, 5]
 
+>>> my_list_2 = MyList([0, 1, 2, 3, 4, 5, -1])
+>>> my_list_2.print_sorted()
+[-1, 0, 1, 2, 3, 4, 5]
+>>> print(my_list_2)
+[0, 1, 2, 3, 4, 5, -1]
+
 >>> empty_list = MyList()
 >>> empty_list.print_sorted()
 []
