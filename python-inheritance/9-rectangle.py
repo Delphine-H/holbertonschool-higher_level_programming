@@ -20,7 +20,7 @@ class Rectangle(BaseGeometry):
 
     def aera(self):
         """Methode that eturn the area"""
-        return self.__width + self.__height
+        return self.__width * self.__height
 
     def __str__(self):
         """This method returns a string representation"""
