@@ -42,17 +42,17 @@ TypeError: volume must be an integer
 
 >>> bg.integer_validator()
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
+    ...
 TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
 >>> bg.validator("name")
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
+    ...
 AttributeError: 'BaseGeometry' object has no attribute 'validator'
 
 >>> bg.validator("name", "Delphine")
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
+    ...
 AttributeError: 'BaseGeometry' object has no attribute 'validator'
 
 >>> bg.integer_validator("height", {4, 3})
