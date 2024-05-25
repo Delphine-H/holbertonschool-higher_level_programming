@@ -8,11 +8,11 @@ Module that contain a class Shape and 2 subclass
 Circle and rectangle
 """
 
+
 class Shape(ABC):
     """
     Class shape that inherit ABC
     """
-
     @abstractmethod
     def area(self):
         """Area method"""
@@ -28,11 +28,8 @@ class Circle(Shape):
     """
     Class Circle that inherit Shape
     """
-
     def __init__(self, radius):
         """Circle constructor"""
-        if radius < 0:
-            raise ValueError("radius must be >= 0")
         self.radius = radius
 
     def area(self):
@@ -48,13 +45,8 @@ class Rectangle(Shape):
     """
     Class Rectangle that inherit Shape
     """
-
     def __init__(self, width, height):
         """Rectangle constructor"""
-        if width < 0:
-            raise ValueError("width must be >= 0")
-        if height < 0:
-            raise ValueError("height must be >= 0")
         self.width = width
         self.height = height
 
