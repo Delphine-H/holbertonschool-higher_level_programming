@@ -30,7 +30,7 @@ class Circle(Shape):
     """
     def __init__(self, radius):
         """Circle constructor"""
-        self.radius = radius
+        self.radius = abs(radius)
 
     def area(self):
         """Area method cicle"""
