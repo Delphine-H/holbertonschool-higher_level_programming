@@ -1,13 +1,24 @@
+#!/usr/bin/python3
 """
-This is the test file for the class BaseGeometry.
-"""
+The 7-base_geometry Module
+==========================
 
+This module contains a class BaseGeometry with methods area and integer_validator.
+
+Import module
+==============
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
+Class instantiation
+====================
 >>> bg = BaseGeometry()
 
+Method integer_validator: valid cases
+=====================================
 >>> bg.integer_validator("age", 10)
 
+Method integer_validator: invalid cases
+=======================================
 >>> try:
 ...     bg.integer_validator("flag", True)
 ... except Exception as e:
@@ -43,3 +54,4 @@ This is the test file for the class BaseGeometry.
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
 [ValueError] distance must be greater than 0
+"""
