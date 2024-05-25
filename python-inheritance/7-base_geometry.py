@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 """This module contain a class BaseGeometry"""
 
+
 class BaseGeometry:
-    """
-    Class BaseGeometry with a methode area
-    """
+    """Class BaseGeometry with a methode area"""
 
     def __init__(self):
         """BaseGeometry constructor"""
