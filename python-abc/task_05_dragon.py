@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 This module contain 2 class SwimMixin and FlyMixin
-and a mi
+and a mix class Dragon
 """
 
 
