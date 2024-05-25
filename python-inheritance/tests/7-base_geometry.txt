@@ -1,8 +1,5 @@
-"""
 The 7-base_geometry Module
 ==========================
-
-This module contains a class BaseGeometry with methods area and integer_validator.
 
 Import module
 ==============
@@ -23,6 +20,7 @@ Usage
 
     >>> bg.area()
     Traceback (most recent call last):
+    ...
     Exception: area() is not implemented
 
 Type Errors
@@ -31,13 +29,13 @@ Type Errors
     ...     bg.integer_validator()
     ... except Exception as e:
     ...     print("[{}] {}".format(e.__class__.__name__, e))
-    [TypeError] integer_validator() missing 2 required positional arguments: 'name' and 'value'
+    [TypeError] BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
     >>> try:
     ...     bg.integer_validator("name")
     ... except Exception as e:
     ...     print("[{}] {}".format(e.__class__.__name__, e))
-    [TypeError] integer_validator() missing 1 required positional argument: 'value'
+    [TypeError] BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
 
     >>> try:
     ...     bg.integer_validator("age", "string")
@@ -46,7 +44,19 @@ Type Errors
     [TypeError] age must be an integer
 
     >>> try:
-    ...     bg.integer_validator("volume", 111.5)
+    ...     bg.integer_validator("amount", "10")
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] amount must be an integer
+
+    >>> try:
+    ...     bg.integer_validator("points", '1234')
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] points must be an integer
+
+    >>> try:
+    ...     bg.integer_validator("volume", 10.5)
     ... except Exception as e:
     ...     print("[{}] {}".format(e.__class__.__name__, e))
     [TypeError] volume must be an integer
@@ -94,6 +104,12 @@ Type Errors
     [TypeError] quantity must be an integer
 
     >>> try:
+    ...     bg.integer_validator("flag", True)
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] flag must be an integer
+
+    >>> try:
     ...     bg.integer_validator("length", None)
     ... except Exception as e:
     ...     print("[{}] {}".format(e.__class__.__name__, e))
@@ -126,4 +142,3 @@ General Errors
     ... except Exception as e:
     ...     print("[{}] {}".format(e.__class__.__name__, e))
     [Exception] area() is not implemented
-"""
