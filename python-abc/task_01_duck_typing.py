@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""
-Module that contain a class Shape and 2 subclass
-Circle and rectangle
-"""
 
 from abc import ABC, abstractmethod
 import math
 
+"""
+Module that contain a class Shape and 2 subclass
+Circle and rectangle
+"""
 
 class Shape(ABC):
     """
