@@ -12,6 +12,9 @@ class BaseGeometry:
     """
 
     def __init__(self):
+        """
+        BaseGeometry constructor
+        """
         pass
 
     def area(self):
@@ -24,7 +27,7 @@ class BaseGeometry:
         """
         methode that validate value
         """
-        if type(value) != int:
+        if type(value) is not int:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
