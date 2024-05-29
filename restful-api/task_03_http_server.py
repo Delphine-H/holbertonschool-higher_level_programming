@@ -29,7 +29,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.send_header("Content-type", "application/json")
             self.end_headers()
             response = {"name": "John", "age": 30, "city": "New York"}
-            self.wfile.write(bytes(json.dumps(response), "utf-8"))
+            self.wfile.write(json.dumps(response).encode())
         elif self.path == "/status":
             self.send_response(200)  # HTTP status 200 OK
             self.send_header("Content-type", "text/plain")
@@ -43,7 +43,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
                 "version": "1.0",
                 "description": "A simple API built with http.server",
             }
-            self.wfile.write(bytes(json.dumps(response), "utf-8"))
+            self.wfile.write(json.dumps(response).encode())
         else:
             self.send_response(404)  # HTTP status 404 Not Found
             self.send_header("Content-type", "text/plain")
