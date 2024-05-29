@@ -29,19 +29,22 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.send_header("Content-type", "application/json")
             self.end_headers()
             response = {"name": "John", "age": 30, "city": "New York"}
-            self.wfile.write(bytes(json.dumps(response), "utf-8"))  # JSON response body
+            self.wfile.write(bytes(json.dumps(response), "utf-8"))
         elif self.path == "/status":
             self.send_response(200)  # HTTP status 200 OK
             self.send_header("Content-type", "application/json")
             self.end_headers()
             response = {"status": "OK"}
-            self.wfile.write(bytes(json.dumps(response), "utf-8"))  # JSON response body
+            self.wfile.write(bytes(json.dumps(response), "utf-8"))
         elif self.path == "/info":
             self.send_response(200)  # HTTP status 200 OK
             self.send_header("Content-type", "application/json")
             self.end_headers()
-            response = {"version": "1.0", "description": "A simple API built with http.server"}
-            self.wfile.write(bytes(json.dumps(response), "utf-8"))  # JSON response body
+            response = {
+                "version": "1.0",
+                "description": "A simple API built with http.server",
+            }
+            self.wfile.write(bytes(json.dumps(response), "utf-8"))
         else:
             self.send_response(404)  # HTTP status 404 Not Found
             self.send_header("Content-type", "text/plain")
@@ -51,7 +54,8 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             )  # Response body for undefined endpoints
 
 
-def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler, port=8000):
+def run(server_class=HTTPServer,
+        handler_class=SimpleHTTPRequestHandler, port=8000):
     """
     Set up and start the HTTP server.
 
@@ -60,8 +64,8 @@ def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler, port=80
     :param port: The port number to bind the server to.
     """
     server_address = ("", port)  # Server address tuple
-    httpd = server_class(server_address, handler_class)  # Create the server instance
-    print(f"Starting httpd server on port {port}")  # Log the start of the server
+    httpd = server_class(server_address, handler_class)  # Create serv instance
+    print(f"Starting httpd server on port {port}")  # Log the start of server
     httpd.serve_forever()  # Start the server
 
 
