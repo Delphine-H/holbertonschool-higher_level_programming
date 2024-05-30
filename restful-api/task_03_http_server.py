@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+This module contain a class SimpleHTTPRequestHandler to set up a web server
+"""
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
