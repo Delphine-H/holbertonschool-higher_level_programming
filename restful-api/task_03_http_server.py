@@ -3,6 +3,7 @@
 This module contain a class SimpleHTTPRequestHandler to set up a web server
 """
 
+import http.server
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 
@@ -48,13 +49,8 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             }
             self.wfile.write(json.dumps(response).encode("utf-8"))
         else:
-            self.send_response(404)  # HTTP status 404 Not Found
-            self.send_header("Content-type", "text/plain")
-            self.end_headers()
-            self.wfile.write(
-                b"Endpoint not found"
-            )  # Response body for undefined endpoints
-
+            self.send_error(404, "Endpoint not found")  # HTTP status 404 Not Found
+            
 
 def run(server_class=HTTPServer,
         handler_class=SimpleHTTPRequestHandler, port=8000):
