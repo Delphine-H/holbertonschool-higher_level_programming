@@ -65,7 +65,7 @@ def run(server_class=HTTPServer,
     :param handler_class: The request handler class to use.
     :param port: The port number to bind the server to.
     """
-    server_address = ("", port)  # Server address tuple
+    server_address = ("localhost", port)  # Server address tuple
     httpd = server_class(server_address, handler_class)  # Create serv instance
     print(f"Starting httpd server on port {port}")  # Log the start of server
     httpd.serve_forever()  # Start the server
