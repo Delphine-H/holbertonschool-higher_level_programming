@@ -51,7 +51,8 @@ def login():
     data = request.get_json()
     username = data.get("username")
     password = data.get("password")
-    if username in users and check_password_hash(users[username]["password"], password):
+    if username in users and check_password_hash(users[username]["password"],
+                                                 password):
         access_token = create_access_token(
             identity={"username": username, "role": users[username]["role"]}
         )
