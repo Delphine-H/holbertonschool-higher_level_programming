@@ -10,11 +10,9 @@ from flask_jwt_extended import (
     jwt_required,
     get_jwt_identity,
 )
-from flask_jwt_extended.exceptions import NoAuthorizationError
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "your_secret_key"
-app.config["JWT_SECRET_KEY"] = "your_jwt_secret_key"
 
 auth = HTTPBasicAuth()
 jwt = JWTManager(app)
@@ -39,12 +37,13 @@ def verify_password(username, password):
         users.get(username).get("password"), password
     ):
         return users.get(username)
+    return None
 
 
 @app.route("/basic-protected", methods=["GET"])
 @auth.login_required
 def basic_protected():
-    return jsonify(message="Basic Auth: Access Granted")
+    return "Basic Auth: Access Granted"
 
 
 @app.route("/login", methods=["POST"])
@@ -52,8 +51,7 @@ def login():
     data = request.get_json()
     username = data.get("username")
     password = data.get("password")
-    if username in users and check_password_hash(users[username]["password"],
-                                                 password):
+    if username in users and check_password_hash(users[username]["password"], password):
         access_token = create_access_token(
             identity={"username": username, "role": users[username]["role"]}
         )
@@ -74,11 +72,6 @@ def admin_only():
     if current_user["role"] == "admin":
         return jsonify(message="Admin Access: Granted")
     return jsonify(message="Admin Access: Forbidden"), 403
-
-
-@app.errorhandler(NoAuthorizationError)
-def handle_no_auth_error(e):
-    return jsonify({"error": "Missing or invalid token"}), 401
 
 
 @jwt.invalid_token_loader
