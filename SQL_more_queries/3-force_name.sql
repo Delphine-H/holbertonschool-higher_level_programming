@@ -4,7 +4,5 @@
 CREATE TABLE IF NOT EXISTS force_name (
     id INT,
     name VARCHAR(256) NOT NULL,
-    PRIMARY KEY (id)
 ) ENGINE=InnoDB;
 
--- This line ensures that the table will have the two columns and their requirements
