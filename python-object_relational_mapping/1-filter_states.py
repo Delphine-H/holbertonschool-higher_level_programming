@@ -29,8 +29,10 @@ if __name__ == "__main__":
     # Create a cursor object using cursor() method
     cursor = db.cursor()
 
-    # Prepare SQL query to retrieve states starting with 'N' and order by states.id
-    sql_query = "SELECT id, name FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
+    # Prepare SQL query to retrieve states starting with 'N'
+	# and order by states.id
+    sql_query = "SELECT id, name FROM states WHERE\
+        name LIKE 'N%' ORDER BY id ASC"
 
     try:
         # Execute the SQL command
