@@ -12,28 +12,21 @@ username = sys.argv[1]
 password = sys.argv[2]
 database = sys.argv[3]
 
-#print("Connecting to MySQL with user={}, password={}, database={}".format(username, password, database))
+# print("Connecting to MySQL with user={}, password={}, database={}".format(username, password, database))
 
-try:
-    # Connect to MySQL
-    db = MySQLdb.connect(
-        host='localhost',
-        user=username,
-        passwd=password,
-        db=database
-    )
+# Connect to MySQL
+db = MySQLdb.connect(host="localhost", user=username, passwd=password, db=database)
 
 
-    # Further logic to execute queries can be added here
-    cursor = db.cursor()
+# Further logic to execute queries can be added here
+cursor = db.cursor()
 
-    # Example query to fetch and print all states
-    cursor.execute("SELECT * FROM states ORDER BY id")
-    results = cursor.fetchall()
-    for row in results:
-        print(row)
+# Example query to fetch and print all states
+cursor.execute("SELECT * FROM states ORDER BY id")
+results = cursor.fetchall()
+for row in results:
+    print(row)
 
-    # Close the cursor and database connection
-    cursor.close()
-    db.close()
-
+# Close the cursor and database connection
+cursor.close()
+db.close()
