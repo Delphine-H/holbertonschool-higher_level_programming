@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Nameless module to declare tables for db hbtn_0e_6_usa
+"""
+Nameless module to declare tables for db hbtn_0e_6_usa
 """
 
 from sqlalchemy.ext.declarative import declarative_base
