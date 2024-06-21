@@ -29,8 +29,8 @@ if __name__ == "__main__":
     # Create a cursor object using cursor() method
     cursor = db.cursor()
 
-    # Prepare SQL query to retrieve states starting with 'N'
-    sql_query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
+    # Prepare SQL query to retrieve states starting with 'N' and order by states.id
+    sql_query = "SELECT id, name FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
 
     try:
         # Execute the SQL command
@@ -39,7 +39,7 @@ if __name__ == "__main__":
         # Fetch all the rows in a list of tuples
         results = cursor.fetchall()
 
-        # Print the results
+        # Print the results in the required format
         for row in results:
             print(row)
 
