@@ -27,7 +27,7 @@ db = MySQLdb.connect(
 cursor = db.cursor()
 
 # Prepare SQL query to retrieve states matching the provided state_name
-sql_query = "SELECT id, name FROM states WHERE name = %s ORDER BY id ASC"
+sql_query = "SELECT * FROM states WHERE name LIKE BINARY '{}'".format(argv[4])
 
 # Execute the SQL command with the state_name as parameter
 cursor.execute(sql_query, (state_name,))
@@ -40,4 +40,5 @@ for row in results:
     print(row)
 
 # Disconnect from server
+cursor.close()
 db.close()
