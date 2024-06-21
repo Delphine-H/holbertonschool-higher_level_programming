@@ -22,7 +22,7 @@ try:
         passwd=password,
         db=database
     )
-    print("Successfully connected to MySQL!")
+
 
     # Further logic to execute queries can be added here
     cursor = db.cursor()
