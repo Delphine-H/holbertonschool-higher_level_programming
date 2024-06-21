@@ -6,6 +6,8 @@ SELECT
     cities.name, 
     (SELECT states.name FROM states WHERE states.id = cities.state_id) AS state_name 
 FROM 
-    cities 
+    cities
+JOIN
+	state ON cities.state_id = state.id
 ORDER BY 
     cities.id ASC;
