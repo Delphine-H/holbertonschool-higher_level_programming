@@ -30,10 +30,7 @@ cursor = db.cursor()
 sql_query = "SELECT * FROM states WHERE name LIKE BINARY '{}'".format(argv[4])
 
 # Execute the SQL command with the state_name as parameter
-cursor.execute(sql_query, (state_name,))
-
-# Fetch all the rows in a list of tuples
-results = cursor.fetchall()
+cursor.execute(sql_query)
 
 # Print the results in the required format
 for row in results:
