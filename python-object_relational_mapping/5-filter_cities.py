@@ -8,45 +8,43 @@ import sys
 
 if __name__ == "__main__":
     # Capture command line arguments
+    if len(sys.argv) != 5:
+        print("Usage: {} username password database state_name"
+              .format(sys.argv[0]))
+        sys.exit(1)
+
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
     state_name = sys.argv[4]
 
-    try:
-        # Connect to MySQL database
-        db = MySQLdb.connect(
-            host="localhost", port=3306, user=username,
-            passwd=password, db=database
-        )
+    # Connect to MySQL database
+    db = MySQLdb.connect(
+        host="localhost", port=3306, user=username,
+        passwd=password, db=database
+    )
 
-        # Create a cursor object using cursor() method
-        cursor = db.cursor()
+    cursor = db.cursor()
 
-        # Prepare SQL query to retrieve cities of the specified state
-        sql_query = """
-            SELECT GROUP_CONCAT(cities.name SEPARATOR ', ')
-            FROM cities
-            INNER JOIN states ON cities.state_id = states.id
-            WHERE states.name = %s
-            ORDER BY cities.id ASC
+    # Prepare SQL query to retrieve cities of the specified state
+    sql_query = """
+        SELECT GROUP_CONCAT(cities.name SEPARATOR ', ')
+        FROM cities
+        INNER JOIN states ON cities.state_id = states.id
+        WHERE states.name = %s
+        ORDER BY cities.id ASC
         """
 
-        # Execute the SQL command with state_name as parameter
-        cursor.execute(sql_query, (state_name,))
+    # Execute the SQL command with state_name as parameter
+    cursor.execute(sql_query, (state_name,))
 
-        # Fetch the first row from the result set
-        result = cursor.fetchone()
+    # Fetch the first row from the result set
+    result = cursor.fetchone()
 
-        if result:
-            # Print the results in the required format
-            print(result[0])
+    if result:
+        # Print the results in the required format
+        print(result[0])
 
-    except MySQLdb.Error as e:
-        print("MySQLdb Error:", e)
-
-    finally:
-        # Disconnect from server
-        if 'db' in locals() and db:
-            cursor.close()
-            db.close()
+    # Clean up
+    cursor.close()
+    db.close()
