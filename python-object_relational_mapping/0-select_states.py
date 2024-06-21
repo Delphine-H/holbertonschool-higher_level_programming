@@ -12,10 +12,12 @@ username = sys.argv[1]
 password = sys.argv[2]
 database = sys.argv[3]
 
-# print("Connecting to MySQL with user={}, password={}, database={}".format(username, password, database))
+# print("Connecting to MySQL with user={}, password={}, database={}"
+# .format(username, password, database))
 
 # Connect to MySQL
-db = MySQLdb.connect(host="localhost", user=username, passwd=password, db=database)
+db = MySQLdb.connect(host="localhost", user=username,
+                     passwd=password, db=database)
 
 
 # Further logic to execute queries can be added here
