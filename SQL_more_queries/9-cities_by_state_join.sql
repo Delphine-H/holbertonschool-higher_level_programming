@@ -8,6 +8,6 @@ SELECT
 FROM 
     cities
 JOIN
-	state ON cities.state_id = state.id
+	states ON cities.state_id = state.id
 ORDER BY 
     cities.id ASC;
