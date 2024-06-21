@@ -1,50 +1,32 @@
 #!/usr/bin/python3
 """
-Script that lists all cities of a given state from the database hbtn_0e_4_usa
+Script that takes in the name of a state as an argument and lists
+all cities of that state, using the database
 """
-
 import MySQLdb
-import sys
+from sys import argv
 
+# The code should not be executed when imported
 if __name__ == "__main__":
-    # Capture command line arguments
-    if len(sys.argv) != 5:
-        print("Usage: {} username password database state_name"
-              .format(sys.argv[0]))
-        sys.exit(1)
-
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-    state_name = sys.argv[4]
-
-    # Connect to MySQL database
+    # make a connection to the database
     db = MySQLdb.connect(
-        host="localhost", port=3306, user=username,
-        passwd=password, db=database
+        host="localhost", port=3306, user=argv[1], passwd=argv[2], db=argv[3]
     )
 
-    cursor = db.cursor()
+    cur = db.cursor()
+    cur.execute(
+        "SELECT cities.id, cities.name FROM cities\
+                INNER JOIN states ON cities.state_id = states.id\
+                WHERE states.name = %s",
+        [argv[4]],
+    )
 
-    # Prepare SQL query to retrieve cities of the specified state
-    sql_query = """
-        SELECT GROUP_CONCAT(cities.name SEPARATOR ', ')
-        FROM cities
-        INNER JOIN states ON cities.state_id = states.id
-        WHERE states.name = %s
-        ORDER BY cities.id ASC
-        """
+    rows = cur.fetchall()
+    j = []
+    for i in rows:
+        j.append(i[1])
+    print(", ".join(j))
 
-    # Execute the SQL command with state_name as parameter
-    cursor.execute(sql_query, (state_name,))
-
-    # Fetch the first row from the result set
-    result = cursor.fetchone()
-
-    if result:
-        # Print the results in the required format
-        print(result[0])
-
-    # Clean up
-    cursor.close()
+    # Clean up process
+    cur.close()
     db.close()
